@@ -1,27 +1,28 @@
 #include "mycs50lib.h"
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 
-void print_card_brand(char* s) {
+void print_card_brand(string s) {
 	if(s[0] == '3' && (s[1] == '4' || s[1] == '7')) {
 		printf("AMEX\n");
-	} else if((cton(s[0]) * 10 + cton(s[1])) >= 51 && (cton(s[0] * 10) + cton(s[1])) <= 55) {
+	} else if((isdigit(s[0]) * 10 + isdigit(s[1])) >= 51 && (isdigit(s[0] * 10) + isdigit(s[1])) <= 55) {
 		printf("MASTERCARD\n");
 	} else if(s[0] == '4') {
 		printf("VISA\n");
 	}
 }
 
-int is_valid_number_card(char* s) {
-	int sum = 0;
-	for(int i = strlen(s) - 2; i >= 0; i -= 2) {
-		int t = cton(s[i]) * 2;
+int is_valid_number_card(string s) {
+	int sum = 0, len = strlen(s);
+	for(int i = len - 2; i >= 0; i -= 2) {
+		int t = isdigit(s[i]) * 2;
 		if (t >= 10) sum += t % 10 + 1;
 		else sum += t;
 	}
 
-	for(int j = strlen(s) - 1; j >= 1; j -= 2) {
-		int t = cton(s[j]);
+	for(int j = len - 1; j >= 1; j -= 2) {
+		int t = isdigit(s[j]);
 		sum += t;
 	}
 

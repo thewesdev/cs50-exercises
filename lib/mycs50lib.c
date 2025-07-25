@@ -1,13 +1,6 @@
 #include "mycs50lib.h"
-#include <stdbool.h>
-#include <string.h>
-#include <stdio.h>
 
-int cton(char s) {
-	return s - '0';
-}
-
-int get_int(char* answer) {
+int get_int(string answer) {
 	bool is_valid_int;
 	bool is_negative;
 	char s[12];
@@ -21,7 +14,9 @@ int get_int(char* answer) {
 
 		is_negative = s[0] == '-';
 
-		for(int i = is_negative ? 1 : 0; i < strlen(s); i++) {
+		len = strlen(s);
+
+		for(int i = is_negative ? 1 : 0; i < len; i++) {
 			if(s[i] < '0' || s[i] > '9') {
 				is_valid_int = false;
 				break;
@@ -29,16 +24,14 @@ int get_int(char* answer) {
 		}
 	} while(is_valid_int == false);
 
-	len = strlen(s);
-
-	for(int i = is_negative ? 1 : 0; i < strlen(s); i++) {
-		n = n * 10 + cton(s[i]);
+	for(int i = is_negative ? 1 : 0; i < len; i++) {
+		n = n * 10 + (s[i] - '0');
 	}
 
 	return is_negative ? -n : n;
 }
 
-long long get_long(char* answer) {
+long long get_long(string answer) {
 	bool is_valid_long;
 	bool is_negative;
 	char s[21];
@@ -53,7 +46,9 @@ long long get_long(char* answer) {
 
 		is_negative = s[0] == '-';
 
-		for(int i = is_negative ? 1 : 0; i < strlen(s); i++) {
+		len = strlen(s);
+
+		for(int i = is_negative ? 1 : 0; i < len; i++) {
 			if(s[i] < '0' || s[i] > '9') {
 				is_valid_long = false;
 				break;
@@ -61,33 +56,33 @@ long long get_long(char* answer) {
 		}
 	} while(is_valid_long == false);
 
-	len = strlen(s);
-
 	for(int i = is_negative ? 1 : 0; i < len; i++) {
-		n = n * 10 + cton(s[i]);
+		n = n * 10 + (s[i] - '0');
 	}
 
 	return is_negative ? -n : n;
 }
 
-float get_float(char* answer) {
+float get_float(string answer) {
 	bool is_valid_float;
 	bool is_negative;
 	char s[42];
 	char* dot_ptr;
 	int len, dot_idx;
-	float n = 0, dp = 0;
+	float n = 0, dp = 0, f = 0.1;
 
 	do {
 		int dot_count = 0;
 		is_valid_float = true;
-		
+
 		printf("%s", answer);
 		scanf("%41s", s);
-		
+
 		is_negative = s[0] == '-';
 
-		for(int i = is_negative ? 1 : 0; i < strlen(s); i++) {
+		len = strlen(s);
+
+		for(int i = is_negative ? 1 : 0; i < len; i++) {
 			if(s[i] == '.') {
 				dot_count++;
 
@@ -102,20 +97,56 @@ float get_float(char* answer) {
 		}
 	} while(is_valid_float == false);
 
-	len = strlen(s);
 	dot_ptr = strchr(s, '.');
 	dot_idx = (dot_ptr != NULL) ? dot_ptr - s : len;
 
-	float f = 0.1;
 	for(int i = is_negative ? 1 : 0; i < len; i++) {
 		if(s[i] != '.') {
-			if (i < dot_idx) n = n * 10 + cton(s[i]);
+			if (i < dot_idx) n = n * 10 + (s[i] - '0');
 			else {
-				dp += cton(s[i]) * f;
+				dp += (s[i] - '0') * f;
 				f /= 10;
 			}
 		}
 	}
 
 	return (is_negative) ? -(n + dp) : n + dp;
+}
+
+string get_string(string answer) {
+	int ch, length = 0, buffer_size = 64;
+	string buffer = malloc(buffer_size);
+
+	if(buffer == NULL) {
+		fprintf(stderr, "Erro de alocação de memória\n");
+		return NULL;
+	}
+
+	printf("%s", answer);
+
+	while((ch = getchar()) != '\n' && ch != EOF) { 
+		if(length + 1 >= buffer_size) {
+			string temp = realloc(buffer, buffer_size *= 2);
+			if(temp == NULL) {
+				fprintf(stderr, "Erro de alocação de memória\n");
+				free(buffer);
+				return NULL;
+			}
+			buffer = temp;
+		}
+		
+		buffer[length++] = (char)ch;
+	}
+	
+	buffer[length] = '\0';
+
+	string temp = realloc(buffer, length+1);
+	if(temp == NULL) {
+		fprintf(stderr, "Erro de alocação de memória\n");
+		free(buffer);
+		return NULL;
+	}
+	buffer = temp;
+
+	return buffer;
 }

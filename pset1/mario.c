@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "mycs50lib.h"
+#include <stdio.h>
 
 int main() {
 	int h;

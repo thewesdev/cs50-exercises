@@ -13,7 +13,7 @@ Todos os exercícios foram resolvidos do zero, com foco em aprendizado sólido, 
 ## 📈 Progresso
 
 - ✅ Módulo 1 – C
-- ⏳ Módulo 2 – Arrays
+- ✅ Módulo 2 – Arrays
 - ⏳ Módulo 3 – Algoritmos
 - ⏳ Módulo 4 – Memória
 - ⏳ Módulo 5 – Estrutura de Dados
@@ -31,9 +31,11 @@ Todos os exercícios foram resolvidos do zero, com foco em aprendizado sólido, 
 Para este repositório, foi criada uma biblioteca própria chamada mycs50lib.c (com mycs50lib.h) que substitui algumas funções da cs50.h, como:
 
 ```c
-int get_int()
-long long get_long()
-float get_float()
+typedef char* string;
+int get_int();
+long long get_long();
+float get_float();
+string get_string();
 ```
 
 Essas funções incluem validações robustas de entrada, evitando erros de digitação e mantendo o código mais limpo e seguro.
@@ -47,11 +49,17 @@ Essa abordagem permite compilar os exercícios sem depender da biblioteca origin
 ## 🧠 Exercícios por módulo
 
 **Módulo 1 – C**
-- [mario](modulo-1/mario.c) – Pirâmides em ASCII
-- [mario-challenge](modulo-1/mario-challenge.c) – Variação criativa do problema do Mario
-- [cash](modulo-1/cash.c) – Algoritmos gananciosos
-- [credit](modulo-1/credit.c) – Validador de número de cartão (Luhn)
-- [population](modulo-1/population.c) – Crescimento populacional
+- [mario](pset1/mario.c) – Pirâmides em ASCII
+- [mario-challenge](pset1/mario-challenge.c) – Variação criativa do problema do Mario
+- [cash](pset1/cash.c) – Algoritmos gananciosos
+- [credit](pset1/credit.c) – Validador de número de cartão (Luhn)
+- [population](pset1/population.c) – Crescimento populacional
+
+**Módulo 2 - Arrays**
+- [scrabble](pset2/scrabble.c) – Pontuação de palavras no Scrabble
+- [readability](pset2/readability.c) – Índice de legibilidade do texto
+- [caesar](pset2/caesar.c) – Cifra de César para cifrar texto
+- [substitution](pset2/substitution.c) – Cifra de substituição com alfabeto dado
 
 (Novos módulos serão adicionados conforme o curso progride)
 
@@ -62,7 +70,7 @@ Essa abordagem permite compilar os exercícios sem depender da biblioteca origin
 Para compilar e rodar um exercício, use o Makefile:
 
 ```bash
-make mod1 # ou make all
+make all
 ./output/mario
 ./output/mario-challenge
 ./output/credit.c

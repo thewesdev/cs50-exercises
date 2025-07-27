@@ -17,7 +17,7 @@ int compute_score(string word) {
 	return p;
 }
 
-int main(void) {
+int main() {
 	string p1_word, p2_word;
 	int p1_points, p2_points;
 

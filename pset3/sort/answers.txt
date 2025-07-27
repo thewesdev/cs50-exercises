@@ -1,0 +1,11 @@
+sort1 utiliza: bubble sort
+
+Como você descobriu?: Na lista desordenada teve o pior tempo, mas na lista ordenada teve um tempo muito melhor, o que indica que não havia muitas operações de troca, já que as condicionais do algoritmo provavelmente retornavam false.
+
+sort2 utiliza: merge sort
+
+Como você descobriu?: Teve o melhor tempo em todos os casos, o que indica que, entre os três algoritmos, este é o que tem a complexidade O(n log(n)).
+
+sort3 utiliza: selection sort
+
+Como você descobriu?: Teve um tempo moderado e constante em todos os casos, o que indica que a ordem não influencia tanto no desempenho, característica do selection sort.

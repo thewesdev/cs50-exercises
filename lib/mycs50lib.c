@@ -1,6 +1,6 @@
 #include "mycs50lib.h"
 
-int get_int(string answer) {
+int get_int(string format, ...) {
 	bool is_valid_int;
 	bool is_negative;
 	char s[12];
@@ -9,7 +9,7 @@ int get_int(string answer) {
 	do {
 		is_valid_int = true;
 
-		printf("%s", answer);
+		printf("%s", format);
 		scanf("%11s", s);
 
 		is_negative = s[0] == '-';
@@ -31,17 +31,27 @@ int get_int(string answer) {
 	return is_negative ? -n : n;
 }
 
-long long get_long(string answer) {
+#ifdef _WIN32
+long long get_long(string format, ...)
+#else
+long get_long(string format, ...)
+#endif
+{
 	bool is_valid_long;
 	bool is_negative;
 	char s[21];
 	int len;
+
+	#ifdef _WIN32
 	long long n = 0;
+	#else
+	long n = 0;
+	#endif
 
 	do {
 		is_valid_long = true;
 
-		printf("%s", answer);
+		printf("%s", format);
 		scanf("%20s", s);
 
 		is_negative = s[0] == '-';
@@ -63,11 +73,11 @@ long long get_long(string answer) {
 	return is_negative ? -n : n;
 }
 
-float get_float(string answer) {
+float get_float(string format, ...) {
 	bool is_valid_float;
 	bool is_negative;
 	char s[42];
-	char* dot_ptr;
+	string dot_ptr;
 	int len, dot_idx;
 	float n = 0, dp = 0, f = 0.1;
 
@@ -75,7 +85,7 @@ float get_float(string answer) {
 		int dot_count = 0;
 		is_valid_float = true;
 
-		printf("%s", answer);
+		printf("%s", format);
 		scanf("%41s", s);
 
 		is_negative = s[0] == '-';
@@ -113,7 +123,7 @@ float get_float(string answer) {
 	return (is_negative) ? -(n + dp) : n + dp;
 }
 
-string get_string(string answer) {
+string get_string(string format, ...) {
 	int ch, length = 0, buffer_size = 64;
 	string buffer = malloc(buffer_size);
 
@@ -122,7 +132,7 @@ string get_string(string answer) {
 		return NULL;
 	}
 
-	printf("%s", answer);
+	printf("%s", format);
 
 	while((ch = getchar()) != '\n' && ch != EOF) { 
 		if(length + 1 >= buffer_size) {

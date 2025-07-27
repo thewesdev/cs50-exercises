@@ -9,9 +9,14 @@
 
 typedef char* string;
 
-int get_int(string answer);
-long long get_long(string answer);
-float get_float(string answer);
-string get_string(string answer);
+int get_int(string format, ...);
+float get_float(string format, ...);
+string get_string(string format, ...);
+
+#ifdef _WIN32
+long long get_long(string format, ...);
+#else
+long get_long(string format, ...);
+#endif
 
 #endif

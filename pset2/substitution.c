@@ -41,7 +41,7 @@ void cipher_text(string plaintext, string key) {
     }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, string argv[]) {
     if(argc != 2) {
         printf("Uso: ./substitution key\n");
         return 1;

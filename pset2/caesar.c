@@ -17,7 +17,7 @@ void ceasar_cipher(string plaintext, int key) {
     }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, string argv[]) {
     if(argc == 1) {
         printf("Usage: ./caesar key\n");
         exit(1);

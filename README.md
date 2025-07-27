@@ -4,17 +4,15 @@
 
 Este repositório contém todos os exercícios resolvidos do curso [CS50x: Introduction to Computer Science](https://cs50.harvard.edu/x/), da Universidade de Harvard — uma introdução rigorosa e desafiadora ao mundo da Ciência da Computação, abordando fundamentos como algoritmos, estruturas de dados, linguagens C, Python, SQL, sistemas e mais.
 
-🧩 O curso está sendo realizado na versão **CC50**, que é uma **iniciativa da [Fundação Estudar](https://www.estudar.org.br/) em parceria com o [Estudar Fora](https://www.estudarfora.org.br/)**. A plataforma oferece uma **versão legendada para pt-br**, com suporte e emissão de certificados válidos para o Brasil.
+🧩 O curso está sendo realizado na versão **[CC50](https://www.estudarfora.org.br/cc50-v2/)**, que é uma **iniciativa da [Fundação Estudar](https://www.estudar.org.br/) em parceria com o [Estudar Fora](https://www.estudarfora.org.br/)**. A plataforma oferece uma **versão legendada para pt-br**, com suporte e emissão de certificados válidos para o Brasil.
 
 Todos os exercícios foram resolvidos do zero, com foco em aprendizado sólido, boas práticas e organização por módulos.
-
----
 
 ## 📈 Progresso
 
 - ✅ Módulo 1 – C
 - ✅ Módulo 2 – Arrays
-- ⏳ Módulo 3 – Algoritmos
+- ✅ Módulo 3 – Algoritmos
 - ⏳ Módulo 4 – Memória
 - ⏳ Módulo 5 – Estrutura de Dados
 - ⏳ Módulo 6 - Python
@@ -24,8 +22,6 @@ Todos os exercícios foram resolvidos do zero, com foco em aprendizado sólido, 
 - ⏳ Módulo 9 – Flask
 - ⏳ Módulo 10 – Ética
 
----
-
 ## 🧰 Biblioteca personalizada mycs50lib
 
 Para este repositório, foi criada uma biblioteca própria chamada mycs50lib.c (com mycs50lib.h) que substitui algumas funções da cs50.h, como:
@@ -33,7 +29,7 @@ Para este repositório, foi criada uma biblioteca própria chamada mycs50lib.c (
 ```c
 typedef char* string;
 int get_int();
-long long get_long();
+long get_long();
 float get_float();
 string get_string();
 ```
@@ -41,10 +37,6 @@ string get_string();
 Essas funções incluem validações robustas de entrada, evitando erros de digitação e mantendo o código mais limpo e seguro.
 
 Essa abordagem permite compilar os exercícios sem depender da biblioteca original do CS50, tornando o projeto mais portável e compatível com qualquer sistema que possua um compilador C. Além disso, ao centralizar as funções de entrada em uma única biblioteca, evita-se a repetição de código em múltiplos arquivos, promovendo a reutilização, organização e manutenibilidade do projeto.
-
-> ℹ️ Nota: A função `get_long` retorna um `long long` (e não apenas `long`) para garantir consistência entre plataformas. Enquanto `long` pode variar em tamanho entre sistemas (ex: 32 bits no Windows e 64 bits em Linux), o `long long` é padronizado como um tipo de 64 bits em ambos, evitando comportamentos inesperados ao lidar com números grandes.
-
----
 
 ## 🧠 Exercícios por módulo
 
@@ -61,9 +53,13 @@ Essa abordagem permite compilar os exercícios sem depender da biblioteca origin
 - [caesar](pset2/caesar.c) – Cifra de César para cifrar texto
 - [substitution](pset2/substitution.c) – Cifra de substituição com alfabeto dado
 
-(Novos módulos serão adicionados conforme o curso progride)
+**Módulo 3 - Algoritmos**
+- [sort](pset3/sort/answers.txt) - Estudo de algoritmos de ordenação
+- [plurality](pset3/plurality/plurality.c) - Eleição por maioria simples
+- [runoff](pset3/runoff/runoff.c) - Eleição com rodadas de eliminação
+- [tideman](pset3/tideman/tideman.c) - Eleição usando grafo sem ciclos
 
----
+(Novos módulos serão adicionados conforme o curso progride)
 
 ## 🛠️ Como executar os exercícios
 
@@ -78,13 +74,9 @@ make all
 ...
 ```
 
----
-
 ## 🤝 Contribuições
 
 Este repositório é focado em aprendizado individual. Caso você esteja fazendo o curso também e queira comparar soluções, sinta-se à vontade para explorar o conteúdo! Feedbacks e sugestões são sempre bem-vindos via issues.
-
----
  
 ## 📄 Licença
 
